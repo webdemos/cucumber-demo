@@ -1,0 +1,19 @@
+{
+  "name": "bower.json",
+  "description": "A demo to show how to use cucumberjs in browser side",
+  "main": "index.js",
+  "authors": [
+    "Larry Chen"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/webdemos/cucumber-demo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+  }
+}

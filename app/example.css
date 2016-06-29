@@ -1,0 +1,57 @@
+/*
+ * Header
+ */
+
+
+/*
+ * Main
+ */
+
+.main {
+  position: absolute;
+  top: 100px;
+  bottom: 100px;
+  left: 15px;
+  right: 15px;
+}
+
+.tab-content {
+  position: absolute;
+  top: 42px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.tab-pane {
+  height: 100%;
+  width: 100%;
+}
+
+#output {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  border: 1px solid #ccc;
+  overflow: scroll;
+  padding: 5px;
+}
+
+
+/*
+ * Footer
+ */
+
+
+#run-feature {
+  position: absolute;
+  top: 33px;
+  right: 0;
+  background-color: #00A818;
+  color: white;
+}
+
+#run-feature:hover {
+  background-color: #39B54A;
+}
