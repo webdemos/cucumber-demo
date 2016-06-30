@@ -56,7 +56,7 @@
             // Buffer steps
             var BUFFER = bufferFile(tempSteps);
 
-            shell.sed('-i', "'%CONTENT%';", BUFFER, tempWrapper);
+            shell.sed('-i', "'%STEPS%';", BUFFER, tempWrapper);
 
             shell.mv('-f', tempWrapper, stepFactories + temp + featureName + '.steps.js');
     

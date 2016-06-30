@@ -8,7 +8,9 @@ function runFeature() {
 
     var options = {
         strict: false,
-        tags: ['~@frontend', '@complex'],
+        tags: ['@frontend'],
+        // tags: ['~@easy', '@complex'],
+        // tags: ['@frontend', '@complex'],
         backtrace: true
     };
 

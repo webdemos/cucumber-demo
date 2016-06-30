@@ -4,8 +4,8 @@
   "description": "A demo to show how to use cucumberjs in browser side",
   "main": "index.js",
   "scripts": {
-    "create:step-definitions": "node ./step_factories/.bin/generate-steps.js",
-    "debug:create:step-definitions": "node-debug ./step_factories/.bin/generate-steps.js",
+    "ut:cucumber:create-steps": "node ./step_factories/.bin/generate-steps.js",
+    "ut:cucumber:create-steps:debug": "node-debug ./step_factories/.bin/generate-steps.js",
     "webpack": "webpack"
   },
   "repository": {

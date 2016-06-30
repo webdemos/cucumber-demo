@@ -1,5 +1,5 @@
 (function (adapter) {
     adapter.addStepDefinitions(function (scenario) {
-        '%CONTENT%';
+        '%STEPS%';
     });
 })(__adapter__);
