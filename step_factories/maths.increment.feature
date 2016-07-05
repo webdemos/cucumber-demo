@@ -1,15 +1,16 @@
-Feature: Simple maths
+@frontend
+Feature: Simple maths: increment
   In order to do maths
   As a developer
   I want to increment variables
 
-  @frontend @easy
-  Scenario: easy maths
+  @easy
+  Scenario: easy maths increment
     Given a variable set to 1
     When I increment the variable by 1
     Then the variable should contain 2
 
-  @frontend @complex
+  @complex
   Scenario Outline: much more complex stuff
     Given a variable set to <var>
     When I increment the variable by <increment>

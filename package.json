@@ -6,7 +6,9 @@
   "scripts": {
     "ut:cucumber:create-steps": "node ./step_factories/.bin/generate-steps.js",
     "ut:cucumber:create-steps:debug": "node-debug ./step_factories/.bin/generate-steps.js",
-    "webpack": "webpack"
+    "webpack": "webpack --watch",
+    "dev": "webpack-dev-server --devtool eval --progress --colors --content-base app/ --history-api-fallback --open chrome",
+    "start": "webpack-dev-server & open http://localhost:8080/"
   },
   "repository": {
     "type": "git",
@@ -22,15 +24,19 @@
     "ace-builds": "^1.2.2",
     "ansi_up": "^1.3.0",
     "bootstrap": "^3.3.6",
+    "browser-sync": "^2.13.0",
+    "browser-sync-webpack-plugin": "^1.0.3",
     "bundle-loader": "^0.5.4",
     "css-loader": "^0.23.1",
     "cucumber": "^1.2.0",
     "file-loader": "^0.9.0",
     "jquery": "~2.1.4",
+    "open-browser-webpack-plugin": "0.0.2",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "shelljs": "^0.7.0"

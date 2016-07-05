@@ -1,5 +1,6 @@
-var mathsSteps = require('./features/step_definitions/maths.steps');
-var mathsFeature = require('./features/maths.feature');
+var mathsSteps = require('./features/step_definitions/maths.increment.steps');
+var mathsFeature = require('./features/maths.increment.feature');
+var ansi_up = require('ansi_up');
 
 
 function runFeature() {
@@ -19,8 +20,9 @@ function runFeature() {
 
     var prettyFormatterOptions = {
         logToFunction: function(data) {
+            debugger
             var text = ansi_up.ansi_to_text(data);
-            console.log(text);
+
             data = ansi_up.ansi_to_html(data);
             $output.append(data);
             $output.scrollTop($output.prop("scrollHeight"));
