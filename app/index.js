@@ -1,5 +1,5 @@
-var mathsSteps = require('./features/step_definitions/maths.increment.steps');
-var mathsFeature = require('./features/maths.increment.feature');
+var mathsSteps = require('./features/step_definitions/maths.decrement.steps');
+var mathsFeature = require('./features/maths.decrement.feature');
 var ansi_up = require('ansi_up');
 
 
