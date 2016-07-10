@@ -7,8 +7,7 @@
     "ut:cucumber:create-steps": "node ./step_factories/.bin/generate-steps.js",
     "ut:cucumber:create-steps:debug": "node-debug ./step_factories/.bin/generate-steps.js",
     "webpack": "webpack --watch",
-    "dev": "webpack-dev-server --devtool eval --progress --colors --content-base app/ --history-api-fallback --open chrome",
-    "start": "webpack-dev-server & open http://localhost:8080/"
+    "dev": "webpack-dev-server --devtool eval --progress --colors --content-base app/ --history-api-fallback --open chrome"
   },
   "repository": {
     "type": "git",

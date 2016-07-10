@@ -1,26 +1,37 @@
-var mathsSteps = require('./features/step_definitions/maths.decrement.steps');
-var mathsFeature = require('./features/maths.decrement.feature');
+var featureSource = require('./features/settings.feature');
+var supportCode = require('./features/step_definitions/settings.steps');
 var ansi_up = require('ansi_up');
+
+// function requireAll(r) { r.keys().forEach(r); }
+// requireAll(require.context('./features/', true, /\.feature$/));
+
+// console.log(requireAll(require.context('./features/', true, /\.feature$/)));
+// console.log(require.context('.', true, /^[a-z]*/));
+// console.log(require('fs'));
+
+var options = {
+    strict: false,
+
+    // tagged with @frontend or @only but not @skip
+    tags: ['@frontend,@only', '~@skip'],
+
+    // tagged with @complex ut not @skip
+    // tags: ['~@skip', '@complex'],
+
+    // tagged with @frontend and @complex
+    // tags: ['@frontend', '@complex'],
+    backtrace: true
+};
 
 
 function runFeature() {
     var $output = $('#output');
     $output.empty();
 
-    var options = {
-        strict: false,
-        tags: ['@frontend'],
-        // tags: ['~@easy', '@complex'],
-        // tags: ['@frontend', '@complex'],
-        backtrace: true
-    };
-
-    var cucumber = Cucumber(mathsFeature, mathsSteps, options);
-    debugger
+    var cucumber = new Cucumber(featureSource, supportCode, options);
 
     var prettyFormatterOptions = {
         logToFunction: function(data) {
-            debugger
             var text = ansi_up.ansi_to_text(data);
 
             data = ansi_up.ansi_to_html(data);
@@ -39,6 +50,7 @@ function runFeature() {
             debugger
         });
     } catch(err) {
+        debugger
         var errorContainer = $('<div>');
         errorContainer.addClass('error').text(err.stack);
         $output.append(errorContainer);
@@ -47,4 +59,6 @@ function runFeature() {
 
 $(function() {
     $('#run-feature').click(runFeature);
+
+    runFeature();
 });
