@@ -1,5 +1,5 @@
-var featureSource = require('./features/settings.feature');
-var supportCode = require('./features/step_definitions/settings.steps');
+var featureSource = require('./features/maths.decrement.feature');
+var supportCode = require('./features/step_definitions/maths.decrement.steps');
 var ansi_up = require('ansi_up');
 
 // function requireAll(r) { r.keys().forEach(r); }
