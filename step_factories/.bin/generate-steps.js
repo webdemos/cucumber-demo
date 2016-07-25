@@ -7,11 +7,11 @@
         path = require('path'),
         shell = require('shelljs'),
         stepFactories = 'step_factories/',
-        temp = '.temp/',
-        tempSteps = path.resolve(stepFactories + temp + './steps.js'),
+        tmp = '.tmp/',
+        tmpSteps = path.resolve(stepFactories + tmp + './steps.js'),
         snippets = path.resolve(stepFactories + '.supports/javascript_syntax.js'),
         wrapper =  path.resolve(stepFactories + '.supports/wrapper.tpl.js'),
-        tempWrapper =  path.resolve(stepFactories + temp + '.wrapper.js'),
+        tmpWrapper =  path.resolve(stepFactories + tmp + '.wrapper.js'),
         command = 'node ' + path.resolve('node_modules/cucumber/bin/cucumber.js'),
         snippetSyntax = '--snippet-syntax ' + snippets,
         feature;
@@ -26,9 +26,9 @@
     }
 
     function cleanSteps () {
-        if (shell.test('-f', [tempSteps])) {
-            shell.rm('-rf', tempSteps);
-            shell.echo(tempSteps + ' cleaned');
+        if (shell.test('-f', [tmpSteps])) {
+            shell.rm('-rf', tmpSteps);
+            shell.echo(tmpSteps + ' cleaned');
             // shell.echo(process.cwd());
         }
     }
@@ -51,14 +51,14 @@
             cleanSteps();
             shell.exec(command + ' ' + snippetSyntax + ' ' + feature);
 
-            shell.cp(wrapper, tempWrapper);
+            shell.cp(wrapper, tmpWrapper);
 
             // Buffer steps
-            var BUFFER = bufferFile(tempSteps);
+            var BUFFER = bufferFile(tmpSteps);
 
-            shell.sed('-i', "'%STEPS%';", BUFFER, tempWrapper);
+            shell.sed('-i', "'%STEPS%';", BUFFER, tmpWrapper);
 
-            shell.mv('-f', tempWrapper, stepFactories + temp + featureName + '.steps.js');
+            shell.mv('-f', tmpWrapper, stepFactories + tmp + featureName + '.steps.js');
     
             cleanSteps();
         }

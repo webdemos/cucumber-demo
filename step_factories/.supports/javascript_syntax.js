@@ -3,29 +3,29 @@ function JavaScriptSyntax() {
 
     var fs = require('fs'),
         path = require('path'),
-        temp = __dirname + '/../.temp/',
+        tmp = __dirname + '/../.tmp/',
         steps = 'steps.js';
 
     function bufferFile(relPath) {
         return fs.readFileSync(path.join(relPath), {encoding: 'utf-8'});
     }
 
-    function generateTempSteps(/*pattern in RegExp*/ pattern, /*snippet in string*/ snippet) {
+    function generateSteps(/*pattern in RegExp*/ pattern, /*snippet in string*/ snippet) {
         var stats;
         try {
             // Query the entry
-            stats = fs.lstatSync(temp + steps);
+            stats = fs.lstatSync(tmp + steps);
 
-            var stepData = bufferFile(temp + steps);
+            var stepData = bufferFile(tmp + steps);
 
             if (stepData.indexOf(pattern) === -1) {
-                fs.appendFileSync(temp + steps, '\n' + snippet + '\n');
+                fs.appendFileSync(tmp + steps, '\n' + snippet + '\n');
             }
 
         } catch (err) {
-            console.log(err);
-            fs.mkdir(temp);
-            fs.appendFileSync(temp + steps, '\n' + snippet + '\n');
+            console.error(err);
+            fs.mkdir(tmp);
+            fs.appendFileSync(tmp + steps, '\n' + snippet + '\n');
         }
     }
 
@@ -38,7 +38,7 @@ function JavaScriptSyntax() {
                 '  ' + callbackName + '();\n' +
                 '});';
     
-            generateTempSteps(pattern, snippet);
+            generateSteps(pattern, snippet);
 
             return snippet;
         }
